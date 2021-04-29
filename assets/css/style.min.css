@@ -1,0 +1,49 @@
+
+.footer-basic{padding:40px 0;background-color:#fff;color:#4b4c4d}.footer-basic ul{padding:0;list-style:none;text-align:center;font-size:18px;line-height:1.6;margin-bottom:0}.footer-basic li{padding:0 10px}.footer-basic ul a{color:inherit;text-decoration:none;opacity:.8}.footer-basic ul a:hover{opacity:1}.footer-basic .social{text-align:center;padding-bottom:25px}.footer-basic .social>a{font-size:24px;width:40px;height:40px;line-height:40px;display:inline-block;text-align:center;border-radius:50%;border:1px solid #ccc;margin:0 8px;color:inherit;opacity:.75}.footer-basic .social>a:hover{opacity:.9}.footer-basic .copyright{margin-top:15px;text-align:center;font-size:13px;color:#aaa;margin-bottom:0}
+.navbar .container .navbar-brand span {
+  font-size: 30px;
+  color: #fff;
+  background: #2980ef;
+  border-radius: 5px;
+  margin: 4px;
+  padding: 5px;
+}
+
+.navbar .container .collapse .navbar-text a {
+  color: #2980ef;
+}
+.navbar .container .collapse .navbar-text .btn .action-button {
+  color: #fff;
+}
+.navbar .container .collapse .navbar-text .btn.action-button:hover {
+  color: #fff;
+}
+/*About*/
+
+.about .row{
+  background: url(../assets/img/star-skym.jpg);
+}
+
+/*dashboard*/
+/*model flights*/
+.body-pd.active{
+  background-color: rgba(0,0,0,0.5);
+  /* visibility: hidden;
+  opacity: 0;
+  transition:visibility 0s opacity 0,5s; */
+}
+.model-content.active{
+  display: block;
+
+}
+.model-content{
+  position:absolute;
+  margin-top: 20px;
+  background-color: white;
+  display:none;
+  color:black;
+ 
+  
+
+}
+/*# sourceMappingURL=style.min.css.map */
