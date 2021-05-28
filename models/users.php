@@ -1,6 +1,6 @@
 <?php 
-require '.\database\db_connect.php';
-'.\database\db_connect.php';
+require_once './database/db_connect.php';
+
 
 class users{
 
@@ -31,7 +31,7 @@ class users{
         if($count>0){
             return 'ok';
         }else{
-            return 'error';
+            return 'invalid password or email';
         }
         $stmt->close();
         $stmt=null;

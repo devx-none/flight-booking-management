@@ -1,5 +1,5 @@
 <?php
-include '.\controllers\utilisateurController.php';
+include './controllers/utilisateurController.php';
 if(isset($_POST['submit'])){
     $newUser = new userController();
     $newUser->addUser();
@@ -12,10 +12,10 @@ if(isset($_POST['submit'])){
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>singin</title>
+    <title>singup</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.min.css">
 </head>
 
 <body>
@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                    
                 </div>
-                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="submit">Sign Up</button></div><a class="already" href="login.php">You already have an account? Login here.</a></form>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="submit">Sign Up</button></div><a class="already" href="login">You already have an account? Login here.</a></form>
         </div>
         <!-- End: Form Container -->
     </div>

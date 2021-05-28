@@ -1,3 +1,4 @@
+
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
 
@@ -7,7 +8,7 @@
   --nav-width: 68px;
 
   /*===== Colors =====*/
-  --first-color: #4723D9;
+  --first-color: #031F2C;
   --first-color-light: #AFA5D9;
   --white-color: #F7F6FB;
   
@@ -181,7 +182,7 @@ a{
   }
   
   /*Show navbar desktop*/
-  .show{
+  .showw{
     width: calc(var(--nav-width) + 156px);
   }
 
@@ -190,6 +191,3 @@ a{
     padding-left: calc(var(--nav-width) + 188px);
   }
 }
-
-
-

@@ -1,8 +1,18 @@
 <?php
-include 'controllers/flightsListController.php';
+if($_SESSION['user']){
 
- $data = new flightsListController();
+}else{
+    header('Location:login');
+}
+include './controllers/flightsController.php';
+include './controllers/bookedController.php';
+
+ $data = new flightsController();
  $flights = $data->getFlights();
+if(isset($_POST['submit'])){
+    $booked = new booked();
+    $booked->addBooking();
+}
 
 ?>
 <!DOCTYPE html>
@@ -14,10 +24,12 @@ include 'controllers/flightsListController.php';
     <title>Document</title>
 </head>
 <body>
+<link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
-    <link rel="stylesheet" href="assets/css/style.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.min.css">
+    <link rel="stylesheet" href="./assets/css/style.min.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -28,9 +40,13 @@ include 'controllers/flightsListController.php';
                 id="navcol-1">
                 <ul class="nav navbar-nav mr-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link active" href="#">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="#">About</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="flightsList">Flights List</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="bookUser">My Bookings</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#">Contact</a></li>
-                </ul><span class="navbar-text actions"> <a class="login" href="login.php">Log In</a><a class="btn btn-outline-primary mx-2 action-button" role="button" href="signup.php">Sign Up</a></span></div>
+                </ul><span class="navbar-text actions"> <a href="LogOut.php" class="nav__link">
+                    <i class='bx bx-log-out nav__icon' ></i>
+                    <span class="nav__name">Log Out</span>
+                </a></span></div>
         </div>
     </nav>
     <!-- End: Navigation with Button -->
@@ -73,13 +89,13 @@ include 'controllers/flightsListController.php';
                                     </div>
                                     <div class="col-sm-3" id="rdate" >
                                         <label for="" class="control-label">Return Date</label>
-                                        <input type="date" class="form-control input-sm " name="date_return" autocomplete="off" >
+                                        <input type="date" class="form-control input-sm " id="dateR" name="date_return" autocomplete="off" >
                                     </div>
                                 </div>
                                 <div class="row form-group">
                                     <div class="col-sm-2 text-center">
                                         <div class="form-check">
-                                          <input class="form-check-input" type="radio" name="trip" id="onewway" value="1" onclick="rtrip()" >
+                                          <input class="form-check-input" type="radio" name="trip" id="onewway" value="1"  >
                                           <label class="form-check-label" for="onewway">
                                             One-way
                                           </label>
@@ -107,16 +123,51 @@ include 'controllers/flightsListController.php';
             </div>
         </div>
     </header>
-    <section class="about">
-    <div class="row">
-
+    <!-- Start: Features Blue -->
+    <div class="features-blue">
+        <div class="container">
+            <!-- Start: Intro -->
+            <div class="intro">
+                <h2 class="text-center">Ready for an adventure? Get the AirFlight app to start booking!</h2>
+                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+            </div>
+            <!-- End: Intro -->
+            <!-- Start: Features -->
+            <div class="row features">
+                <div class="col-sm-6 col-md-4 item"><i class="fa fa-map-marker icon"></i>
+                    <h3 class="name">Works everywhere</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fa fa-clock-o icon"></i>
+                    <h3 class="name">Always available</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fa fa-list-alt icon"></i>
+                    <h3 class="name">Festive cashback!</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fa fa-leaf icon"></i>
+                    <h3 class="name">Freedom to change!</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fa fa-plane icon"></i>
+                    <h3 class="name">Fast Forward</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                </div>
+                <div class="col-sm-6 col-md-4 item"><i class="fas fa-globe icon"></i>
+                    <h3 class="name">24 International Destinations</h3>
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est.</p>
+                </div>
+            </div>
+            <!-- End: Features -->
+        </div>
     </div>
-
-    </section>
-    <div class="footer-basic">
+    <!-- End: Features Blue -->
+    
+    <div class="footer-basic bg-dark text-white">
         <footer>
             <!-- Start: Social Icons -->
-            <div class="social"><a href="#"><i class="icon ion-social-instagram"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-facebook"></i></a></div>
+            <div class="social"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-twitter"></i></a><a href="#"><i class="fab fa-instagram"></i></i></a><a href="#"><i class="fab fa-snapchat"></i></a></div>
             <!-- End: Social Icons -->
             <!-- Start: Links -->
             <ul class="list-inline">
@@ -137,17 +188,12 @@ include 'controllers/flightsListController.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/main.js"></script>
 
 <script>
-function rtrip(){
-var trip = document.getElementById('onewway').checked;
-var rtrip = document.querySelector('#rtrip');
 
-if(trip==true){
-    alert("hh");
-     rtrip.style.display='none';
-  }
-}
+
+
 
 
 </script>

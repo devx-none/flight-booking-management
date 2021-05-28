@@ -1,5 +1,5 @@
 <?php
-include '.\models\users.php';
+include './models/users.php';
 class userController{
 
     public function addUser(){
@@ -15,6 +15,7 @@ class userController{
             $result = users::add($data);
             
             if($result==='ok'){
+               header('Location:login');
                 
             }else{
                 echo $result;
@@ -23,7 +24,7 @@ class userController{
         }
     }
      public function login(){
-
+        
         if(isset($_POST['submit'])){
             $data =array(
                 'email'=>$_POST['email'],
@@ -31,12 +32,15 @@ class userController{
 
             );
             $result = users::login_user($data);
-            echo $result;
+           
             if($result==='ok'){
-               header('Location:singup.php');
+                session_start();
+                $_SESSION['user']=$_POST['email'];
+                 header('Location: home');
         
             }else{
                 echo $result;
+               
                 
                
                

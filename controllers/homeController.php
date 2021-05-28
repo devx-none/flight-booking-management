@@ -2,8 +2,10 @@
  class homeController{
 
     public function index($page){
-     include('./'.$page.'.php');
-
+     include('views/'.$page.'.php');
+    }
+    public function indexAdmin($page){
+      include('views/admin/'.$page.'.php');
     }
  }
 

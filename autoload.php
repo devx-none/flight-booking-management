@@ -5,7 +5,8 @@ function autoload($class_nam){
     $array_paths=array(
         'database/',
         'models/',
-        'controllers/'
+        'controllers/',
+        'views/',
     );
     $parts = explode('\\',$class_nam);
     $name = array_pop($parts);

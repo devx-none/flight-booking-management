@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -12,6 +13,7 @@
         <!-- ===== CSS ===== -->
         <link rel="stylesheet" href="../assets/css/styles.css">
         <link rel="stylesheet" href="../assets/css/style.min.css">
+        <!-- <link rel="stylesheet" href="../css/bootstrap.min.css"> -->
 
         <title>flight booking system</title>
     </head>
@@ -29,19 +31,19 @@
         <div class="l-navbar" id="nav-bar">
             <nav class="nav">
                 <div>
-                    <a href="#" class="nav__logo">
+                    <a href="dashboard.php" class="nav__logo">
                         <i class='bx bx-layer nav__logo-icon'></i>
                         <span class="nav__logo-name">AirFlight</span>
                     </a>
 
                     <div class="nav__list">
-                        <a href="#" class="nav__link active">
+                        <a href="booked.php" class="nav__link active">
                         <i class="fa fa-book"></i>
                         
                             <span class="nav__name">Booked</span>
                         </a>
 
-                        <a href="#" class="nav__link">
+                        <a href="Flights.php" class="nav__link">
                         <i class="far fa-plane"></i>
                             <span class="nav__name">Flights</span>
                         </a>
@@ -67,17 +69,13 @@
             </nav>
         </div>
         
-        <h1>Welcome To Back,</h1>
-        <button type="button" class="btn btn-primary btn-lg">Add Flight</button>
-        <?php include 'flights.php' ?>
-        <?php include 'flightList.php' ?>
+  
         <!--===== MAIN JS =====-->
         <script src="../assets/js/main.js"></script>
+		<!-- <script src="../js/bootstrap.js"></script> -->
         <script>
         
         
         </script>
         
-    </body>
-    <script src="https://use.fontawesome.com/a4219a98e6.js"></script>
-</html>
+    
